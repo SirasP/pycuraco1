@@ -1,0 +1,66 @@
+{% include 'cabecera.html'%}
+
+<div class="container ">
+    <div class="row pt-1">
+        <div class="col">
+            <img src="http://localhost/php/background.png" alt="">
+        </div>
+        <div class="col text-center">
+            <div class="text-start">
+                <h3 style="color: cornflowerblue;" class="fst-italic">Ingresa a tu Cuenta</h3>
+            </div>
+
+            <div class="pt-5">
+                <img src="http://localhost/php/MuniLogo1.png" alt="" height="70" width="160">
+            </div>
+            <br>
+            <form action="{{ url_for('inicio') }}" method="POST">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="user"
+                        placeholder="Usuario@ejemplo.com">
+                    <label for="floatingInput">Ingrese tu RUN</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" name="pass"
+                        placeholder="Contraseña">
+                    <label for="floatingPassword">Ingresa tu Clave</label>
+                </div>
+
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary btn">Ingresar</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12 pt-5">
+                    <p class="pt-2">
+                        <a class="fst-italic pt-2" href="#">Olvido Su Contraseña?</a>
+                    </p>
+                    <p class="fst-italic">
+                        <label class="">¿ No Tienes Cuenta ? Registrate
+                            <a href="registrar">AQUI</a>
+                        </label>
+                    <div>
+                        {% include "mensajes.html" %}
+                    </div>
+                    </p>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+
+
+
+{% include 'pie.html'%}

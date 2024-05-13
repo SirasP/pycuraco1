@@ -1,0 +1,60 @@
+{% include 'cabecera.html' %}
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Checkout form</h2>
+        <p class="lead">Below is an example form to show filtered flash
+            messages using Flask. This example include two categories:
+            <mark>success</mark>
+            and
+            <mark>error</mark>
+            . Change the quantity from
+            the dropdown in form submit to check the flash messages. The
+            message box can be closed using the cross icon on upper right
+            corner.
+        </p>
+    </div>
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            {%- for msg in errors %}
+            <li>{{ msg }}</li>
+            {% endfor -%}
+        </ul>
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <ul>
+            {%- for msg in messages %}
+            <li>{{ msg }}</li>
+            {% endfor -%}
+        </ul>
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endwith %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="product_quantity" class="form-label">Product
+                quantity</label>
+            <select name="product_quantity" class="form-select" id="product_quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% include 'pie.html' %}

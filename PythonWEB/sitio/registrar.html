@@ -1,0 +1,87 @@
+{% include 'cabecera.html' %}
+
+<div class="container">
+    <div class="row pt-1">
+        <div class="col">
+            <img src="http://localhost/php/background.png" alt="">
+        </div>
+        <div class="col text-center">
+            <div class="text-start">
+                <h3 style="color: cornflowerblue;" class="fst-italic">Crear Cuenta</h3>
+            </div>
+            <div class="">
+                <img src="http://localhost/php/MuniLogo1.png" alt="" height="70" width="160">
+            </div>
+            <div class="pt-4">
+                <p class="fst-italic"> Si ya eres parte,
+                    <a href="/" style="color: blue;">Inicia sesión</a> con tus
+                    datos.<a href="/" style="color: cornflowerblue;">
+                    </a>
+                </p>
+            </div>
+            <form action="{{ url_for('registrarUsuario') }}" method="POST">
+
+                <div class="modal-body pt-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" id="username" name="username"
+                            placeholder="">
+                        <label for="floatingInput">Numero de Cedula identidad</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" id="nombre" name="nombre"
+                            placeholder="">
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" id="apellido" name="apellido"
+                            placeholder="">
+                        <label for="floatingInput">Apellido</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" id="password" name="password"
+                            placeholder="Contraseña">
+                        <label for="floatingPassword">Contraseña</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" id="repassword"
+                            name="repassword" placeholder="Contraseña">
+                        <label for="floatingPassword">Reingresar Contraseña</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingPassword" id="email" name="email"
+                            placeholder="Contraseña" required>
+                        <label for="floatingPassword">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn">Crear Cuenta</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row pt-4">
+                {% include "mensajes.html" %}
+            </div>
+
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% include 'pie.html'%}

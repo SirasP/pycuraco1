@@ -1,0 +1,70 @@
+{% include "cabecera.html" %}
+<div class="container">
+    <div class="row pt-1">
+
+        <div class="col text-center">
+            <div class="text-start">
+                <h3 style="color: cornflowerblue;" class="fst-italic">Tabla Contribuyente</h3>
+            </div>
+            <div class="">
+                <img src="http://localhost/php/MuniLogo1.png" alt="" height="70" width="160">
+
+            </div>
+            <div>
+                <a href="{{ url_for('tabla') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    volver
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for('agregarUsuarioCuraco') }}">Agregar Usuario</a>
+            </div>
+            <div>
+                <a href="{{ url_for('IngresoCuraco') }}">Ingreso Curaco</a>
+            </div>
+            <div class="container pt-3">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover  align-middle">
+                        <thead class="table-light">
+
+                            <tr>
+                                <th>RUT</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Direccion</th>
+                                <th>Fecha Creacion</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            {% for rv in rvs %}
+                            <tr class="">
+
+                                <td scope="row">{{ rv[6] }}</td>
+                                <td>{{ rv[1] }}</td>
+                                <td>{{ rv[2] }}</td>
+                                <td>{{ rv[3] }}</td>
+                                <td>{{ rv[4] }}</td>
+                                <td>
+                                    <a name="enviar" id="" class="btn btn-danger "
+                                        href="{{ url_for('borrarCuraco', id=rv[0])}}" role="button"> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                    {% include "mensajes.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% include "pie.html" %}

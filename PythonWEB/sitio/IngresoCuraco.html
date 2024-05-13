@@ -1,0 +1,108 @@
+{% include 'cabecera.html' %}
+
+<div class="container">
+    <div class="row pt-1">
+        <div class="col">
+            <img src="http://localhost/php/background.png" alt="">
+        </div>
+        <div class="col text-center">
+            <div class="text-start">
+                <h3 style="color: cornflowerblue;" class="fst-italic">Ingreso Curaco</h3>
+            </div>
+            <div class="">
+                <img src="http://localhost/php/MuniLogo1.png" alt="" height="70" width="160">
+
+            </div>
+            <div>
+                <a href="{{ url_for('usuariosCuraco') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    volver
+                </a>
+            </div>
+
+            <div class="modal-body pt-4">
+
+                <form action="{{ url_for('IngresoCuraco') }}" method="POST">
+                    <div class="input-group mb-2 form-floating">
+                        <input type="text" class="form-control" placeholder="Buscar RUN" value="{{rut}}"
+                            aria-describedby="button-addon2" name="rut" id="rut">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                        <label for="floatingInput">RUN</label>
+                    </div>
+                </form>
+
+                <form action="{{ url_for('ingresopatente') }}" method="POST">
+                    {% for rv in rvs %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" id="nombre" name="nombre"
+                            placeholder="" value="{{ rv['nombre'] }} {{ rv['apellido'] }}" disabled>
+                        <label for="floatingInput">Nombre Completo</label>
+                    </div>
+
+                    <div class="form-floating mb-3" hidden>
+                        <input type="text" class="form-control" id="floatingInput" id="apellido" name="apellido"
+                            placeholder="" value="{{ rv['apellido'] }}" disabled>
+                        <label for="floatingInput">Apellido</label>
+                    </div>
+
+                    <div class="form-floating mb-3" hidden>
+                        <input type="text" class="form-control" id="floatingInput" id="direccion" name="direccion"
+                            placeholder="" value="{{ rv['direccion'] }}" disabled>
+                        <label for="floatingInput">Direccion</label>
+                    </div>
+                    {% endfor %}
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" id="patente" name="patente"
+                            placeholder="Contraseña">
+                        <label for="floatingPassword">Placa Patente</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" id="Capacidadcarga"
+                            name="Capacidadcarga" placeholder="Contraseña">
+                        <label for="floatingPassword">Capacidad de Carga</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" id="marca" name="marca"
+                            placeholder="Contraseña">
+                        <label for="floatingPassword">Marca Vehiculo</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" id="modelo" name="modelo"
+                            placeholder="Contraseña">
+                        <label for="floatingPassword">Modelo</label>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Valor</label>
+                        <select class="form-select" id="valor" name="valor">
+                            <option value="1">20.000</option>
+                            <option value="1">40.000</option>
+                            <option value="1">80.000</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-primary btn">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row pt-4">
+                {% include "mensajes.html" %}
+            </div>
+
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'pie.html' %}

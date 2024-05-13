@@ -1,0 +1,84 @@
+{% include "cabecera.html" %}
+<div class="container">
+    <div class="row pt-1">
+        <div class="col">
+            <img src="http://localhost/php/background.png" alt="">
+        </div>
+        <div class="col text-center">
+            <div class="text-start">
+                <h3 style="color: cornflowerblue;" class="fst-italic">Ingresar Contribuyente</h3>
+            </div>
+            <div class="">
+                <img src="http://localhost/php/MuniLogo1.png" alt="" height="70" width="160">
+
+            </div>
+            <div>
+                <a href="{{ url_for('usuariosCuraco') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    volver
+                </a>
+            </div>
+
+            <div class="modal-body pt-4">
+                <form action="{{ url_for('agregarUsuarioCuraco') }}" method="POST">
+
+                    <div class="modal-body pt-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" id="rut" name="rut"
+                                placeholder="">
+                            <label for="floatingInput">Rut</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" id="nombre" name="nombre"
+                                placeholder="">
+                            <label for="floatingInput">Nombre</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" id="apellido" name="apellido"
+                                placeholder="">
+                            <label for="floatingInput">Apellido</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" id="direccion"
+                                name="direccion" placeholder="Contraseña">
+                            <label for="floatingPassword">Direccion</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" id="patente"
+                                name="patente" placeholder="Contraseña">
+                            <label for="floatingPassword">Placa Patente</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" id="Capacidadcarga"
+                                name="Capacidadcarga" placeholder="Contraseña">
+                            <label for="floatingPassword">Capacidad de Carga</label>
+                        </div>
+
+                        
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="floatingPassword" id="fechacreacion"
+                                name="fechacreacion">
+                            <label for="floatingPassword">Fecha Solicitud</label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn">Crear Cuenta</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% include "mensajes.html" %}
+        </div>
+    </div>
+</div>
+{% include "pie.html" %}

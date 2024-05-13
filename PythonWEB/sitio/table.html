@@ -1,0 +1,59 @@
+{% include 'cabecera.html' %}
+
+<div class="container">
+
+    <p class="text-start fst-italic">
+    <h4> Bienvenido, {{ username }}!</h4>
+    </p>
+
+    <a href="{{ url_for('usuariosCuraco') }}">
+        <i class="fas fa-sign-out-alt"></i>
+        Agregar Usuarios
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+    </a>
+
+    <div class="table-responsive">
+        <table class="table table-success table-striped table-xl">
+            <thead>
+                <tr>
+                    <th scope="col">Identificador</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">ReContraseña</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for rv in rvs %}
+                <tr class="">
+
+                    <td>{{ rv[0] }}</td>
+                    <td>{{ rv[1] }}</td>
+                    <td>{{ rv[2] }}</td>
+                    <td>{{ rv[3] }}</td>
+                    <td>{{ rv[4] }}</td>
+                    <td>{{ rv[5] }}</td>
+                    <td>{{ rv[6] }}</td>
+                    <td>
+                        <a name="enviar" id="" class="btn btn-danger " href="{{ url_for('borrar', id=rv[0])}}"
+                            value="{{rv[0]}}" role="button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    {% include "mensajes.html" %}
+
+</div>
+
+{% include 'pie.html' %}
